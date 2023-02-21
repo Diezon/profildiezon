@@ -1,0 +1,167 @@
+/* font */
+@font-face{
+    font-family:"bebas-neue";
+    src: url(../font/BebasNeue-Regular.woff) format('woff');
+}
+/* system utama */
+body{
+    font :18px/36px "bebas-neue",'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    background-color: #ddd;
+}
+h1{
+    font-size: 80px ;
+    margin:50px 0; text-align: center;
+    text-shadow: 2px 2px 2px  whitesmoke ;
+}
+.container{
+    width: 600px;
+    background-color: aliceblue;
+    margin: auto;
+    padding:15px;
+    box-shadow: 0 0 3px 4px rgba(0,0,0,0.3);
+    border-radius: 5px;
+}
+.pap li{
+    height: 120px;
+    width: 120px;
+    border: 5px solid #666;
+    float: left;
+    margin:0 10px;
+    position: relative;
+}
+.pap li,
+.pap li span,
+.gemoy{
+    border-radius: 50%;
+}
+
+.pap li span{
+    display: block;
+    height: 120px;
+    width: 120px;
+    background-color: rgba(255, 255, 255, 0.3);   
+    position: absolute;
+    top :0;
+    text-align: center;
+    line-height: 120px;
+    color: rgb(230, 3, 48);
+    text-shadow: 1px 1px 1px #ddd;
+    opacity: 0;
+    transition:.3s;
+    transform: scale(0) rotate(0);
+}
+.pap li a:hover span{
+    opacity: 1;
+    transform: scale(1) rotate(360deg);
+}
+.clear{
+    clear: both; 
+}
+    /*overlay */
+.overlay{
+    width: 0;
+    height: 0; 
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgba(0,0,0,);
+    transition: .7s;
+    z-index: 888; 
+    text-align: center;
+    padding: 30px;
+    overflow: hidden;
+     } 
+.overlay:target{
+    width: auto;
+    height: auto;
+    bottom: 0;
+    right: 0;
+    background: rgba(0,0,0,0.8)
+}
+.overlay img{
+    max-height: 100%;
+    box-shadow: 2px 2px 6px rgba(250, 249, 249, 0.5);
+}
+.overlay:target img{
+    animation: semakbenlaun .7s;
+}
+/* animasi */
+@keyframes semakbenlaun{
+    0%{
+        transform: scale(0);
+        opacity: 0;
+    }
+    100%{
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+.overlay .notop{
+    position: absolute;
+    top:30px;
+    left: 50%;
+    margin-left: -23px;
+    color: white;
+    text-decoration: none;
+    background-color: black;
+    border: 1px solid white;
+    line-height: 1px;
+    padding:15px;
+    opacity: 0 ;
+}
+.overlay:target .notop{
+    animation: muncul .7s .8s forwards;
+}
+.overlay:target .next,
+.overlay:target .prev{
+    animation: fadein .7s 1.5s forwards ;
+}
+.next:active .overlay:target img{
+    animation: minggir .7s forwards;
+}
+@keyframes minggir{
+    0%{
+        margin-left: 200px;
+        opacity: 0;
+    }
+    100%{
+        margin-left: 0;
+        opacity: 1;
+    }
+}
+.next, .prev{
+    width: 78px;
+    height: 100px;
+    background-image: url(../foto/full/next.png);
+    position: absolute;
+    text-indent: -9999px;
+    top: 250px;
+    margin-left: 80px;
+    border-radius: 20%;
+    opacity: 0;
+}
+.prev{
+    background-image: url(../foto/full/back.png);
+    margin-left: -155px;
+}
+@keyframes fadein {
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+
+/* animasi notop */
+@keyframes muncul{
+    0%{
+        opacity: 0;
+        margin-top: -20px;
+    }
+    100%{
+        opacity: 1;
+        margin-top: 0;
+    }
+}
+
